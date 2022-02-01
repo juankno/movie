@@ -8,8 +8,10 @@
     <title>Movies</title>
 </head>
 
-<body>
-    <nav>New nav here</nav>
+<body class="font-sans bg-gray-900 text-white">
+
+    <x-nav />
+    
     @yield('content')
 </body>
 
