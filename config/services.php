@@ -20,6 +20,12 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+    'tmdb' => [
+        'base_uri' => env('TMDB_BASE_URI'),
+        'key' => env('TMDB_KEY'),
+        'token' => env('TMDB_TOKEN'),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
