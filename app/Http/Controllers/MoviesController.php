@@ -23,11 +23,20 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $popularMovies = $this->tmdbService->getPopularMovies()['results'];
+        $popularMovies = $this->tmdbService->getPopularMovies();
 
-        dump($popularMovies);
+        $genres = $this->tmdbService->getGenresMovies();
 
-        return view('index', ['popularMovies' => $popularMovies]);
+        $nowPlayingMovies = $this->tmdbService->getNowPlayingMovies();
+
+
+        // dump($nowPlayingMovies);
+
+        return view('index', [
+            'popularMovies' => $popularMovies,
+            'nowPlayingMovies' => $nowPlayingMovies,
+            'genres' => $genres,
+        ]);
     }
 
     /**

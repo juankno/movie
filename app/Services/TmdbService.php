@@ -25,6 +25,22 @@ class TmdbService
     public function getPopularMovies()
     {
         return Http::withToken($this->token)
-            ->get("{$this->baseUri}/3/movie/popular")->json();
+            ->get("{$this->baseUri}/3/movie/popular")->json()['results'];
+    }
+
+    public function getGenresMovies()
+    {
+        $genres = Http::withToken($this->token)
+            ->get("{$this->baseUri}/3/genre/movie/list")->json()['genres'];
+
+        return collect($genres)->mapWithKeys(function ($genre) {
+            return [$genre['id'] => $genre['name']];
+        });
+    }
+
+    public function getNowPlayingMovies()
+    {
+        return Http::withToken($this->token)
+            ->get("{$this->baseUri}/3/movie/now_playing")->json()['results'];
     }
 }
