@@ -50,4 +50,11 @@ class TmdbService
             ->get("{$this->baseUri}/3/movie/{$movie}?append_to_response=credits,videos,images")
             ->json();
     }
+
+    public function getSearchesMovie(string $search)
+    {
+        return Http::withToken($this->token)
+            ->get("{$this->baseUri}/3/search/movie?query={$search}")
+            ->json()['results'];
+    }
 }
