@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Movies</title>
+    <title>MoviesApp - @yield('title', 'Home')</title>
 </head>
 
 <body class="font-sans bg-gray-900 text-white">

@@ -68,7 +68,13 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        return view('show');
+        $movie = $this->tmdbService->getDetailsMovie($id);
+
+        // dump($movie);
+
+        return view('show', [
+            'movie' => $movie,
+        ]);
     }
 
     /**

@@ -43,4 +43,11 @@ class TmdbService
         return Http::withToken($this->token)
             ->get("{$this->baseUri}/3/movie/now_playing")->json()['results'];
     }
+
+    public function getDetailsMovie($movie)
+    {
+        return Http::withToken($this->token)
+            ->get("{$this->baseUri}/3/movie/{$movie}?append_to_response=credits,videos,images")
+            ->json();
+    }
 }
